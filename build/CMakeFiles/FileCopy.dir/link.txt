@@ -1,0 +1,2 @@
+D:\msys2\mingw64\bin\ar.exe qc lib\libFileCopy.a CMakeFiles/FileCopy.dir/FileCopy.cpp.obj
+D:\msys2\mingw64\bin\ranlib.exe lib\libFileCopy.a

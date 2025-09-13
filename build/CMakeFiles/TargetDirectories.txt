@@ -1,0 +1,4 @@
+C:/Users/16939/Desktop/test/test10/build/CMakeFiles/FileCopy.dir
+C:/Users/16939/Desktop/test/test10/build/CMakeFiles/test.dir
+C:/Users/16939/Desktop/test/test10/build/CMakeFiles/edit_cache.dir
+C:/Users/16939/Desktop/test/test10/build/CMakeFiles/rebuild_cache.dir

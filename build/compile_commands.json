@@ -1,0 +1,14 @@
+[
+{
+  "directory": "C:/Users/16939/Desktop/test/test10/build",
+  "command": "D:\\msys2\\mingw64\\bin\\g++.exe  @CMakeFiles/FileCopy.dir/includes_CXX.rsp -g -std=gnu++17 -Wall -Wextra -Wpedantic -o CMakeFiles\\FileCopy.dir\\FileCopy.cpp.obj -c C:\\Users\\16939\\Desktop\\test\\test10\\FileCopy.cpp",
+  "file": "C:/Users/16939/Desktop/test/test10/FileCopy.cpp",
+  "output": "CMakeFiles/FileCopy.dir/FileCopy.cpp.obj"
+},
+{
+  "directory": "C:/Users/16939/Desktop/test/test10/build",
+  "command": "D:\\msys2\\mingw64\\bin\\g++.exe  @CMakeFiles/test.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\test.dir\\test.cpp.obj -c C:\\Users\\16939\\Desktop\\test\\test10\\test.cpp",
+  "file": "C:/Users/16939/Desktop/test/test10/test.cpp",
+  "output": "CMakeFiles/test.dir/test.cpp.obj"
+}
+]
