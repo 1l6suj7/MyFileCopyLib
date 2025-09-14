@@ -6,7 +6,7 @@ using namespace std;
 int main() {
     clock_t startTime = clock();
     FileCopy fileCopier(true, FileCopy::CopyMode::Overwrite, 100, 16384, true); // 16 KB buffer size
-    FileCopy::result res = fileCopier.copy("D:\\WPS Office", "C:\\");
+    FileCopy::result res = fileCopier.copy("D:\\WPS Office", "D:\\WPS Office");
 
     auto infos = fileCopier.getCopyInfos();
     // for (const auto& info : infos) {

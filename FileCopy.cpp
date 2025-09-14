@@ -13,7 +13,6 @@ FileCopy::result FileCopy::copy(const std::string& source, const std::string& de
         if (copyInProgress) {
             return result::FileCopyInProgress;
         }
-        copyInProgress = true;
     }
     // clear previous copy info
     failedDuringCopy = false;
@@ -22,7 +21,7 @@ FileCopy::result FileCopy::copy(const std::string& source, const std::string& de
         std::lock_guard<std::mutex> lock(infoMutex);
         clearCopyInfo();
     }
-    
+    copyInProgress = true;
     fs::path srcPath(source);
     fs::path destPath(destination);
 
@@ -35,7 +34,7 @@ FileCopy::result FileCopy::copy(const std::string& source, const std::string& de
     }
 
     // destination is a file
-    if(fs::exists(destPath) && !fs::is_directory(destPath)) {
+    if (fs::exists(destPath) && !fs::is_directory(destPath)) {
         logCopyInfo({ srcPath, destPath, result::DestinationIsFile });
         copyInProgress = false;
         return result::DestinationIsFile;
@@ -81,7 +80,7 @@ FileCopy::result FileCopy::copy(const std::string& source, const std::string& de
     }
 
     // Pre-check for existing files if mode is Cancel
-    for(const auto& entry : fs::directory_iterator(destPath)) {
+    for (const auto& entry : fs::directory_iterator(destPath)) {
         fs::path relativePath = fs::relative(entry.path(), srcPath);
         fs::path destFilePath = destPath / relativePath;
         if (fs::exists(destFilePath)) {
@@ -212,6 +211,7 @@ void FileCopy::withdrawCopiedFiles() {
 }
 
 void FileCopy::cancelCopy() {
+    if (copyInProgress == false) return;
     std::lock_guard<std::mutex> lock(copyCanceledMutex);
     copyCanceled = true;
 }

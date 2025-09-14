@@ -98,7 +98,7 @@ private:
     CopyMode copyMode = CopyMode::Skip;
     bool copySystemFiles = false;
     bool documentCopyInfo = true;
-    bool copyInProgress = false;
+    std::atomic<bool> copyInProgress = false;
     bool failedDuringCopy = false;
     std::mutex copyCanceledMutex;
     std::atomic<bool> copyCanceled = false;
