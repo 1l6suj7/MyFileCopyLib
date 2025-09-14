@@ -13,6 +13,7 @@ FileCopy::result FileCopy::copy(const std::string& source, const std::string& de
         if (copyInProgress) {
             return result::FileCopyInProgress;
         }
+        copyInProgress = true;
     }
     // clear previous copy info
     failedDuringCopy = false;
@@ -21,7 +22,6 @@ FileCopy::result FileCopy::copy(const std::string& source, const std::string& de
         std::lock_guard<std::mutex> lock(infoMutex);
         clearCopyInfo();
     }
-    copyInProgress = true;
     fs::path srcPath(source);
     fs::path destPath(destination);
 
